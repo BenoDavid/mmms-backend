@@ -1,0 +1,15 @@
+module.exports = (sequelize, DataTypes) => sequelize.define('Technician', {
+  id: { type: DataTypes.STRING(40), primaryKey: true },
+  employeeNumber: { type: DataTypes.STRING(40), allowNull: false, unique: true, field: 'employee_number' },
+  name: { type: DataTypes.STRING(160), allowNull: false },
+  email: { type: DataTypes.STRING(160) },
+  phone: { type: DataTypes.STRING(60) },
+  skillCategories: { type: DataTypes.JSONB, allowNull: false, defaultValue: [], field: 'skill_categories' },
+  shift: { type: DataTypes.STRING(80), allowNull: false, defaultValue: 'Day' },
+  factory: { type: DataTypes.STRING(120), allowNull: false, defaultValue: 'Factory A' },
+  organizationId: { type: DataTypes.STRING(120), field: 'organization_id' },
+  factoryId: { type: DataTypes.STRING(120), field: 'factory_id' },
+  active: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: true },
+  currentWorkload: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0, field: 'current_workload' },
+  availability: { type: DataTypes.ENUM('Available', 'Busy', 'Unavailable'), allowNull: false, defaultValue: 'Available' },
+}, { tableName: 'mmms_technicians', underscored: true });

@@ -1,0 +1,10 @@
+const express = require('express');
+const MasterRecordController = require('../controllers/MasterRecordController');
+const controller = new MasterRecordController();
+const router = express.Router({ mergeParams: true });
+const asyncRoute = (handler) => (req, res, next) => Promise.resolve(handler(req, res, next)).catch(next);
+router.get('/', asyncRoute(controller.getAll.bind(controller)));
+router.post('/', asyncRoute(controller.create.bind(controller)));
+router.put('/:id', asyncRoute(controller.update.bind(controller)));
+router.delete('/:id', asyncRoute(controller.delete.bind(controller)));
+module.exports = router;

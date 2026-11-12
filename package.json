@@ -1,0 +1,30 @@
+{
+  "name": "mmms-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Smart Machine Maintenance Management System API",
+  "main": "src/server.js",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "db:migrate": "sequelize-cli db:migrate",
+    "db:create": "node src/create-database.js",
+    "db:migrate:undo": "sequelize-cli db:migrate:undo",
+    "db:seed": "sequelize-cli db:seed:all",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "express-rate-limit": "^8.0.1",
+    "express": "^4.21.2",
+    "helmet": "^8.1.0",
+    "hpp": "^0.2.3",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.13.1",
+    "sequelize": "^6.37.8"
+  },
+  "devDependencies": { "sequelize-cli": "^6.6.2" }
+}
