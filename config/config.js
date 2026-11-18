@@ -16,4 +16,15 @@ const base = {
   dialect: 'postgres',
 };
 
-module.exports = { development: base, test: base, production: { ...base, dialectOptions: { ssl: { require: true, rejectUnauthorized: process.env.DB_SSL_REJECT_UNAUTHORIZED !== 'false' } } } };
+const production = { ...base };
+// TLS stays enabled by default; local Compose explicitly uses its private network.
+if (process.env.DB_SSL !== 'false') {
+  production.dialectOptions = {
+    ssl: {
+      require: true,
+      rejectUnauthorized: process.env.DB_SSL_REJECT_UNAUTHORIZED !== 'false',
+    },
+  };
+}
+
+module.exports = { development: base, test: base, production };

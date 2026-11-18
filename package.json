@@ -12,7 +12,9 @@
     "db:create": "node src/create-database.js",
     "db:migrate:undo": "sequelize-cli db:migrate:undo",
     "db:seed": "sequelize-cli db:seed:all",
-    "test": "node --test"
+    "db:seed:undo": "sequelize-cli db:seed:undo:all",
+    "test": "node --test",
+    "test:integration": "node tools/run-integration-tests.cjs"
   },
   "dependencies": {
     "cors": "^2.8.5",

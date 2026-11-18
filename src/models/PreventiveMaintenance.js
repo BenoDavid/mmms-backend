@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) =>
     "PreventiveMaintenance",
     {
       id: { type: DataTypes.STRING(40), primaryKey: true },
+      details: { type: DataTypes.JSONB, allowNull: false, defaultValue: {} },
       machineId: {
         type: DataTypes.STRING(40),
         allowNull: false,

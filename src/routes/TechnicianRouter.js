@@ -1,5 +1,7 @@
-const BaseRouter = require('./BaseRouter');
-const TechnicianController = require('../controllers/TechnicianController');
-const { Technician } = require('../models');
+const BaseRouter = require("./BaseRouter");
+const TechnicianController = require("../controllers/TechnicianController");
+const { Technician } = require("../models");
 
-module.exports = new BaseRouter(new TechnicianController(Technician)).getRouter();
+module.exports = new BaseRouter(
+  new TechnicianController(Technician),
+).getRouter();
